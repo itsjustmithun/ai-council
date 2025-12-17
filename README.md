@@ -4,7 +4,7 @@
 
 Idea is simple, switching to Multi LLM arch and setting up a council btw each other to review and rank each other's responses (e.g. OpenAI GPT 5.1, Google Gemini 3.0 Pro, Anthropic Claude Sonnet 4.5, xAI Grok 4), and finally a Chairman LLM produces the final response.
 
-<video src="ai-council.mp4" controls autoplay loop muted width="100%" playbackRate="1.5"></video>
+![AI Council Demo](assets/ai-council.gif)
 
 In a bit more detail, here is what happens when you submit a query:
 
