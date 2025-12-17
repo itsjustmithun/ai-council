@@ -103,6 +103,3 @@ async def query_model_stream(
     except Exception as e:
         print(f"Error streaming model {model}: {e}")
         yield None
-
-
-

@@ -15,7 +15,8 @@ from .council import (
     stage1_collect_responses_stream,
     stage2_collect_rankings_stream,
     stage3_synthesize_final_stream,
-    parse_ranking_from_text
+    parse_ranking_from_text,
+    calculate_aggregate_rankings
 )
 
 app = FastAPI(title="AI Council API")
@@ -83,9 +84,6 @@ async def get_conversation(conversation_id: str):
     if conversation is None:
         raise HTTPException(status_code=404, detail="Conversation not found")
     return conversation
-
-
-
 
 
 @app.post("/api/conversations/{conversation_id}/message/stream")

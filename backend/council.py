@@ -6,10 +6,6 @@ import asyncio
 from .openrouter import query_model, query_model_stream
 from .config import COUNCIL_MODELS, CHAIRMAN_MODEL
 
-
-
-
-
 async def stage1_collect_responses_stream(user_query: str) -> AsyncGenerator[Tuple[str, str], None]:
     """
     Stage 1: Stream individual responses from all council models.
@@ -43,10 +39,6 @@ async def stage1_collect_responses_stream(user_query: str) -> AsyncGenerator[Tup
             completed_models += 1
         else:
             yield model, chunk
-
-
-
-
 
 async def stage2_collect_rankings_stream(
     user_query: str,
@@ -130,10 +122,6 @@ Now provide your evaluation and ranking:"""
             completed_models += 1
         else:
             yield model, chunk, label_to_model
-
-
-
-
 
 async def stage3_synthesize_final_stream(
     user_query: str,

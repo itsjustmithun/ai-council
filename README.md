@@ -1,6 +1,10 @@
-# AI Council
+## AI Council
 
-The idea of this repo is that instead of asking a question to your favorite LLM provider (e.g. OpenAI GPT 5.1, Google Gemini 3.0 Pro, Anthropic Claude Sonnet 4.5, xAI Grok 4, eg.c), you can group them into your "AI Council". This repo is a simple, local web app that essentially looks like ChatGPT except it uses OpenRouter to send your query to multiple LLMs, it then asks them to review and rank each other's work, and finally a Chairman LLM produces the final response.
+[![Vibes](https://img.shields.io/badge/Vibes-Immaculate-ff69b4?style=flat-square)](https://github.com/itsjustmithun/ai-council) [![Stability](https://img.shields.io/badge/Stability-YOLO-orange?style=flat-square)](https://github.com/itsjustmithun/ai-council) [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE) [![Cost](https://img.shields.io/badge/Cost-Your%20Tokens-red?style=flat-square)](https://openrouter.ai)
+
+Idea is simple, switching to Multi LLM arch and setting up a council btw each other to review and rank each other's responses (e.g. OpenAI GPT 5.1, Google Gemini 3.0 Pro, Anthropic Claude Sonnet 4.5, xAI Grok 4), and finally a Chairman LLM produces the final response.
+
+<video src="ai-council.mp4" controls autoplay loop muted width="100%" playbackRate="1.5"></video>
 
 In a bit more detail, here is what happens when you submit a query:
 
@@ -8,13 +12,13 @@ In a bit more detail, here is what happens when you submit a query:
 2. **Stage 2: Review**. Each individual LLM is given the responses of the other LLMs. Under the hood, the LLM identities are anonymized so that the LLM can't play favorites when judging their outputs. The LLM is asked to rank them in accuracy and insight.
 3. **Stage 3: Final response**. The designated Chairman of the AI Council takes all of the model's responses and compiles them into a single final answer that is presented to the user.
 
-## Vibe Code Alert
+### Vibe Code Alert
 
 This project was 99% vibe coded as a fun project. It's nice and useful to see multiple responses side by side, and also the cross-opinions of all LLMs on each other's outputs. I'm not going to support it in any way, it's provided here as is for other people's inspiration and I don't intend to improve it. Code is ephemeral now and libraries are over, ask your LLM to change it in whatever way you like.
 
-## Setup
+### Setup
 
-### 1. Install Dependencies
+#### 1. Install Dependencies
 
 The project uses [uv](https://docs.astral.sh/uv/) for project management.
 
@@ -30,7 +34,7 @@ npm install
 cd ..
 ```
 
-### 2. Configure API Key
+#### 2. Configure API Key
 
 Create a `.env` file in the project root:
 
@@ -40,7 +44,7 @@ OPENROUTER_API_KEY=sk-or-v1-...
 
 Get your API key at [openrouter.ai](https://openrouter.ai/). Make sure to purchase the credits you need, or sign up for automatic top up.
 
-### 3. Configure Models (Optional)
+#### 3. Configure Models (Optional)
 
 Edit `backend/config.py` to customize the council:
 
@@ -55,7 +59,7 @@ COUNCIL_MODELS = [
 CHAIRMAN_MODEL = "google/gemini-3-pro-preview"
 ```
 
-## Running the Application
+### Running the Application
 
 **Option 1: Use the start script**
 ```bash
@@ -77,7 +81,7 @@ npm run dev
 
 Then open http://localhost:5173 in your browser.
 
-## Tech Stack
+### Tech Stack
 
 - **Backend:** FastAPI (Python 3.10+), async httpx, OpenRouter API
 - **Frontend:** React + Vite, react-markdown for rendering
